@@ -66,6 +66,15 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+// function that checks the overall score after 5 rounds.
+function declareWinner(computerScore, playerScore) {
+  if (computerScore > playerScore) {
+    return "Computer WON!";
+  } else {
+    return "Player WON!";
+  }
+}
+
 // A function that allows users to be prompted to enter rock, paper, or scissors
 //up to 5 rounds.
 function game() {
@@ -82,6 +91,7 @@ function game() {
   console.log(
     `Final Score: Computer ${computerScore}, Player : ${playerScore}`
   );
+  console.log(declareWinner(computerScore, playerScore));
 }
 
 console.log(game());
