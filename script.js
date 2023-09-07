@@ -1,12 +1,9 @@
 // Function for getting a computer choice for either rock paper scissors
-function getComputerChoice(playerSelection) {
+function getComputerChoice() {
   var computerChoices = ["rock", "paper", "scissors"];
 
-  selections = computerChoices.filter((choice) => choice !== playerSelection);
-  console.log(selections);
-  //   randomly select an choice from computer selection
   var computerChoice =
-    selections[Math.floor(Math.random() * selections.length)];
+    computerChoices[Math.floor(Math.random() * computerChoices.length)];
   console.log(computerChoice);
   return computerChoice;
 }
@@ -21,6 +18,8 @@ function playRound(playerSelection, computerSelection) {
       return "You Lost! Paper beats Rock!";
     } else if (computerSelection == "scissors") {
       return "You win! Rock beats Scissors!";
+    } else {
+      return "It's a tie!";
     }
   }
 
@@ -30,6 +29,8 @@ function playRound(playerSelection, computerSelection) {
       return "You Lost! Scissors beats Paper!";
     } else if (computerSelection == "rock") {
       return "You win! Paper beats Rock!";
+    } else {
+      return "It's a tie!";
     }
   }
 
@@ -39,6 +40,8 @@ function playRound(playerSelection, computerSelection) {
       return "You Lost! Rock beats Scissors!";
     } else if (computerSelection == "paper") {
       return "You win! Scissors beats Paper";
+    } else {
+      return "It's a tie!";
     }
   }
 
@@ -53,5 +56,5 @@ function playRound(playerSelection, computerSelection) {
 }
 
 const playerSelection = "scissors";
-const computerSelection = getComputerChoice(playerSelection);
+const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
