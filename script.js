@@ -1,7 +1,7 @@
 // global variable
 var playerScore = 0;
 var computerScore = 0;
-const finalScore = 5;
+const numberOfRounds = 5;
 
 // Function for getting a computer choice for either rock paper scissors
 function getComputerChoice() {
@@ -78,7 +78,7 @@ function declareWinner(computerScore, playerScore) {
 // A function that allows users to be prompted to enter rock, paper, or scissors
 //up to 5 rounds.
 function game() {
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < numberOfRounds; i++) {
     //prompt user
     const playerSelection = window.prompt("Rock, Paper, or Scissors");
 
