@@ -94,4 +94,4 @@ function game() {
   console.log(declareWinner(computerScore, playerScore));
 }
 
-console.log(game());
+//console.log(game());
