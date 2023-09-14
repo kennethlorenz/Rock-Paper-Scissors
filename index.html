@@ -9,38 +9,42 @@
   <body>
     <div class="container">
       <h1>Rock, Paper, Scissors!</h1>
-      <div>
+      <div class="round">
         <h2>Round: <span id="round">1</span></h2>
       </div>
 
-      <div>
+      <div class="main">
         <div class="card">
-          <p>Player 1</p>
+          <p class="player">Player 1</p>
           <div class="selections">
-            <div class="rock">
+            <div class="selection rock">
               <img src="./icons/rock.png" alt="rock" />
             </div>
-            <div class="paper">
+            <div class="selection paper">
               <img src="./icons/paper.png" alt="paper" />
             </div>
-            <div class="scissors">
+            <div class="selection scissors">
               <img src="./icons/scissors.png" alt="scissors" />
             </div>
           </div>
-          <div id="playerChoice">Your choice: Rock</div>
+          <div id="playerChoice" class="choice">Your choice: Rock</div>
+          <div class="score">Score: 1</div>
         </div>
-        <div><p id="result">You won!</p></div>
+        <div class="result"><p id="result">You won!</p></div>
         <div class="card">
-          <p>Computer</p>
+          <p class="player">Computer</p>
           <div id="computerSelection">
             <img src="./icons/scissors.png" alt="scissors" />
           </div>
-          <div id="computerChoice">Computer Selected: Scissors</div>
+          <div id="computerChoice" class="choice">
+            Computer Selected: Scissors
+          </div>
+          <div class="score">Score: 1</div>
         </div>
       </div>
 
       <div>
-        <button>Reset</button>
+        <button class="resetButton">Reset</button>
       </div>
     </div>
     <script src="script.js"></script>
