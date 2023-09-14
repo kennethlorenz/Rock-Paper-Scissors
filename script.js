@@ -10,9 +10,12 @@ const computerScoreCounter = document.querySelector("#computerScore");
 playerScoreCounter.textContent = 0;
 computerScoreCounter.textContent = 0;
 const result = document.querySelector("#result");
+const resetButton = document.querySelector(".resetButton");
+const playerSelected = document.querySelector("#playerSelection");
+const computerSelected = document.querySelector("#computerSelection");
 // Function for getting a computer choice for either rock paper scissors
 function getComputerChoice() {
-  var computerChoices = ["rock", "paper", "scissors"];
+  var computerChoices = ["Rock", "Paper", "Scissors"];
 
   var computerChoice =
     computerChoices[Math.floor(Math.random() * computerChoices.length)];
@@ -22,15 +25,16 @@ function getComputerChoice() {
 
 // function to play a round that accepts a player selection and a computer selection
 function playRound(playerSelection, computerSelection) {
-  const player = playerSelection.toLowerCase();
-
+  //const player = playerSelection.toLowerCase();
+  playerSelected.textContent = playerSelection;
+  computerSelected.textContent = computerSelection;
   //   function to call if player selects rock
   function playerSelectedRock() {
-    if (computerSelection == "paper") {
+    if (computerSelection == "Paper") {
       computerScore += 1;
       computerScoreCounter.textContent = computerScore;
       result.textContent = "You Lost! Paper beats Rock!";
-    } else if (computerSelection == "scissors") {
+    } else if (computerSelection == "Scissors") {
       playerScore += 1;
       playerScoreCounter.textContent = playerScore;
       result.textContent = "You win! Rock beats Scissors!";
@@ -41,11 +45,11 @@ function playRound(playerSelection, computerSelection) {
 
   //   function to call if player selects paper
   function playerSelectedPaper() {
-    if (computerSelection == "scissors") {
+    if (computerSelection == "Scissors") {
       computerScore += 1;
       computerScoreCounter.textContent = computerScore;
       result.textContent = "You Lost! Scissors beats Paper!";
-    } else if (computerSelection == "rock") {
+    } else if (computerSelection == "Rock") {
       playerScore += 1;
       playerScoreCounter.textContent = playerScore;
       result.textContent = "You win! Paper beats Rock!";
@@ -56,11 +60,11 @@ function playRound(playerSelection, computerSelection) {
 
   //   function to call if player selects scissors
   function playerSelectedScissors() {
-    if (computerSelection == "rock") {
+    if (computerSelection == "Rock") {
       computerScore += 1;
       computerScoreCounter.textContent = computerScore;
       result.textContent = "You Lost! Rock beats Scissors!";
-    } else if (computerSelection == "paper") {
+    } else if (computerSelection == "Paper") {
       playerScore += 1;
       playerScoreCounter.textContent = playerScore;
       result.textContent = "You win! Scissors beats Paper";
@@ -70,11 +74,11 @@ function playRound(playerSelection, computerSelection) {
   }
 
   // condition to check if a player has selected either rock paper or scissors.
-  if (player == "rock") {
+  if (playerSelection == "Rock") {
     return playerSelectedRock();
-  } else if (player == "paper") {
+  } else if (playerSelection == "Paper") {
     return playerSelectedPaper();
-  } else if (player == "scissors") {
+  } else if (playerSelection == "Scissors") {
     return playerSelectedScissors();
   }
 }
@@ -110,19 +114,24 @@ function game() {
 
 function playRock() {
   const computerSelection = getComputerChoice();
-  console.log(playRound("rock", computerSelection));
+  console.log(playRound("Rock", computerSelection));
 }
 
 function playPaper() {
   const computerSelection = getComputerChoice();
-  console.log(playRound("paper", computerSelection));
+  console.log(playRound("Paper", computerSelection));
 }
 
 function playScissors() {
   const computerSelection = getComputerChoice();
-  console.log(playRound("scissors", computerSelection));
+  console.log(playRound("Scissors", computerSelection));
+}
+
+function reloadPage() {
+  window.location.reload();
 }
 //console.log(game());
 rock.addEventListener("click", playRock);
 paper.addEventListener("click", playPaper);
 scissors.addEventListener("click", playScissors);
+resetButton.addEventListener("click", reloadPage);
