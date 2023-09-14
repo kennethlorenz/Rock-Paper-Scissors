@@ -9,6 +9,7 @@ const playerScoreCounter = document.querySelector("#playerScore");
 const computerScoreCounter = document.querySelector("#computerScore");
 playerScoreCounter.textContent = 0;
 computerScoreCounter.textContent = 0;
+const result = document.querySelector("#result");
 // Function for getting a computer choice for either rock paper scissors
 function getComputerChoice() {
   var computerChoices = ["rock", "paper", "scissors"];
@@ -28,13 +29,13 @@ function playRound(playerSelection, computerSelection) {
     if (computerSelection == "paper") {
       computerScore += 1;
       computerScoreCounter.textContent = computerScore;
-      return "You Lost! Paper beats Rock!";
+      result.textContent = "You Lost! Paper beats Rock!";
     } else if (computerSelection == "scissors") {
       playerScore += 1;
       playerScoreCounter.textContent = playerScore;
-      return "You win! Rock beats Scissors!";
+      result.textContent = "You win! Rock beats Scissors!";
     } else {
-      return "It's a tie!";
+      result.textContent = "It's a tie!";
     }
   }
 
@@ -43,13 +44,13 @@ function playRound(playerSelection, computerSelection) {
     if (computerSelection == "scissors") {
       computerScore += 1;
       computerScoreCounter.textContent = computerScore;
-      return "You Lost! Scissors beats Paper!";
+      result.textContent = "You Lost! Scissors beats Paper!";
     } else if (computerSelection == "rock") {
       playerScore += 1;
       playerScoreCounter.textContent = playerScore;
-      return "You win! Paper beats Rock!";
+      result.textContent = "You win! Paper beats Rock!";
     } else {
-      return "It's a tie!";
+      result.textContent = "It's a tie!";
     }
   }
 
@@ -58,13 +59,13 @@ function playRound(playerSelection, computerSelection) {
     if (computerSelection == "rock") {
       computerScore += 1;
       computerScoreCounter.textContent = computerScore;
-      return "You Lost! Rock beats Scissors!";
+      result.textContent = "You Lost! Rock beats Scissors!";
     } else if (computerSelection == "paper") {
       playerScore += 1;
       playerScoreCounter.textContent = playerScore;
-      return "You win! Scissors beats Paper";
+      result.textContent = "You win! Scissors beats Paper";
     } else {
-      return "It's a tie!";
+      result.textContent = "It's a tie!";
     }
   }
 
