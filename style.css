@@ -100,3 +100,8 @@ img {
   border: unset;
   cursor: pointer;
 }
+
+.resetButton:hover {
+  background: #1a18a7;
+  color: white;
+}
