@@ -28,18 +28,26 @@
             </div>
           </div>
           <div id="playerChoice" class="choice">Your choice: Rock</div>
-          <div class="score">Score: 1</div>
+          <div class="score">Score: <span id="playerScore">0</span></div>
         </div>
-        <div class="result"><p id="result">You won!</p></div>
+        <div class="result"><p id="result"></p></div>
         <div class="card">
           <p class="player">Computer</p>
-          <div id="computerSelection">
-            <img src="./icons/scissors.png" alt="scissors" />
+          <div class="selections">
+            <div class="selection rock computer">
+              <img src="./icons/rock.png" alt="rock" />
+            </div>
+            <div class="selection paper computer">
+              <img src="./icons/paper.png" alt="paper" />
+            </div>
+            <div class="selection scissors computer">
+              <img src="./icons/scissors.png" alt="scissors" />
+            </div>
           </div>
           <div id="computerChoice" class="choice">
             Computer Selected: Scissors
           </div>
-          <div class="score">Score: 1</div>
+          <div class="score">Score: <span id="computerScore">0</span></div>
         </div>
       </div>
 

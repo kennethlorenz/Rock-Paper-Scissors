@@ -74,6 +74,14 @@ h1 {
   cursor: pointer;
 }
 
+/* computer selection */
+.card .selection.computer,
+.card .selection.computer:hover {
+  transition: unset;
+  cursor: unset;
+  transform: unset;
+}
+
 .card .selection:hover {
   transform: scale(1.5);
 }
