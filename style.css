@@ -31,6 +31,11 @@ h1 {
   font-size: 8.5rem;
 }
 
+h1,
+h3 {
+  color: white;
+}
+
 .container {
   padding: 3.5rem;
 }
@@ -61,6 +66,7 @@ h1 {
 
 .card .player {
   font-size: 2rem;
+  font-weight: bold;
 }
 
 .card .choice,
@@ -117,6 +123,22 @@ h1 {
   animation: zoominoutsingleresult 0.5s ease;
 }
 
+@keyframes zoomInModal {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.modalZoom {
+  animation: zoomInModal 0.25s ease;
+}
+
 .card .selection:hover {
   transform: scale(1.5);
 }
@@ -141,12 +163,13 @@ img {
   padding: 1.5rem 5.5rem;
   border-radius: 1.5rem;
   border: unset;
+  background: rgb(120, 152, 171);
+  color: white;
   cursor: pointer;
 }
 
 .resetButton:hover {
-  background: #1a18a7;
-  color: white;
+  background: rgb(3, 98, 154);
 }
 
 /* Modal styles */
