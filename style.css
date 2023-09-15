@@ -54,7 +54,7 @@ h3,
 
 /* Card Section */
 .card {
-  background-color: #f9dddd;
+  background-color: #fff5f5;
   display: flex;
   flex-direction: column;
   gap: 4rem;
