@@ -18,6 +18,8 @@ computerRock = document.querySelector("#computerRock");
 computerPaper = document.querySelector("#computerPaper");
 computerScissors = document.querySelector("#computerScissors");
 computerSelections = document.querySelectorAll(".selection.computer");
+modalMessage = document.querySelector(".modalMessage");
+var modal = document.getElementById("myModal");
 
 // Function for getting a computer choice for either rock paper scissors
 function getComputerChoice() {
@@ -124,45 +126,35 @@ function playRound(playerSelection, computerSelection) {
 // function that checks the overall score after 5 rounds.
 function declareWinner(computerScore, playerScore) {
   if (computerScore > playerScore) {
-    return "Computer WON!";
+    modalMessage.textContent = "You Lost.";
   } else {
-    return "Player WON!";
+    modalMessage.textContent = "You WON!";
   }
 }
 
-// A function that allows users to be prompted to enter rock, paper, or scissors
-//up to 5 rounds.
-function game() {
-  //while (playerScore < maxScore && computerScore < maxScore) {
-  //prompt user
-  const playerSelection = window.prompt("Rock, Paper, or Scissors");
-
-  //generate computer selection
-  const computerSelection = getComputerChoice();
-  //console.log(`Round ${i + 1}`);
-  console.log(playRound(playerSelection, computerSelection));
-  console.log(`Player Score: ${playerScore}, Computer Score: ${computerScore}`);
-  //}
-
-  console.log(
-    `Final Score: Computer ${computerScore}, Player : ${playerScore}`
-  );
-  console.log(declareWinner(computerScore, playerScore));
+function checkScore() {
+  if (playerScore == maxScore || computerScore == maxScore) {
+    declareWinner(computerScore, playerScore);
+    modal.style.display = "block";
+  }
 }
 
 function playRock() {
   const computerSelection = getComputerChoice();
   playRound("Rock", computerSelection);
+  checkScore();
 }
 
 function playPaper() {
   const computerSelection = getComputerChoice();
   playRound("Paper", computerSelection);
+  checkScore();
 }
 
 function playScissors() {
   const computerSelection = getComputerChoice();
   playRound("Scissors", computerSelection);
+  checkScore();
 }
 
 function reloadPage() {
@@ -187,3 +179,21 @@ computerScissors.addEventListener("animationend", () => {
 result.addEventListener("animationend", () => {
   result.classList.remove("zoomAnimateResult");
 });
+
+// modal
+// Get the modal
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// When the user clicks on the button, open the modal
+btn.onclick = function () {
+  modal.style.display = "block";
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
