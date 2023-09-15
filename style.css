@@ -60,7 +60,7 @@ h1 {
 }
 
 .card .player {
-  font-size: 5.5rem;
+  font-size: 2rem;
 }
 
 .card .choice,
@@ -89,7 +89,7 @@ h1 {
   50% {
     background-color: rgb(120, 152, 171);
     border-radius: 2rem;
-    transform: scale(1.2, 1.2);
+    transform: scale(1.2);
   }
   100% {
     background-color: unset;
@@ -133,7 +133,7 @@ h1 {
 
 img {
   height: auto;
-  width: 10.5rem;
+  width: 8.5rem;
 }
 
 .resetButton {
@@ -147,4 +147,37 @@ img {
 .resetButton:hover {
   background: #1a18a7;
   color: white;
+}
+
+/* Modal styles */
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 35rem; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 5rem;
+  border: 1px solid #888;
+  width: 50rem;
+  border-radius: 1rem;
+}
+
+.modalMessage {
+  font-size: 2rem;
 }
