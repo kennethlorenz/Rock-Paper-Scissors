@@ -82,6 +82,41 @@ h1 {
   transform: unset;
 }
 
+@keyframes zoominoutsingle {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    background-color: rgb(120, 152, 171);
+    border-radius: 2rem;
+    transform: scale(1.2, 1.2);
+  }
+  100% {
+    background-color: unset;
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes zoominoutsingleresult {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2, 1.2);
+  }
+  100% {
+    background-color: unset;
+    transform: scale(1);
+  }
+}
+.zoomAnimate {
+  animation: zoominoutsingle 0.5s;
+}
+
+.zoomAnimateResult {
+  animation: zoominoutsingleresult 0.5s ease;
+}
+
 .card .selection:hover {
   transform: scale(1.5);
 }
