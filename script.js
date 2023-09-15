@@ -13,6 +13,12 @@ const result = document.querySelector("#result");
 const resetButton = document.querySelector(".resetButton");
 const playerSelected = document.querySelector("#playerSelection");
 const computerSelected = document.querySelector("#computerSelection");
+
+computerRock = document.querySelector("#computerRock");
+computerPaper = document.querySelector("#computerPaper");
+computerScissors = document.querySelector("#computerScissors");
+computerSelections = document.querySelectorAll(".selection.computer");
+
 // Function for getting a computer choice for either rock paper scissors
 function getComputerChoice() {
   var computerChoices = ["Rock", "Paper", "Scissors"];
@@ -23,6 +29,20 @@ function getComputerChoice() {
   return computerChoice;
 }
 
+function animateRock() {
+  computerRock.classList.add("zoomAnimate");
+}
+function animatePaper() {
+  computerPaper.classList.add("zoomAnimate");
+}
+function animateScissors() {
+  computerScissors.classList.add("zoomAnimate");
+}
+
+function animateResult() {
+  result.classList.add("zoomAnimateResult");
+}
+
 // function to play a round that accepts a player selection and a computer selection
 function playRound(playerSelection, computerSelection) {
   //const player = playerSelection.toLowerCase();
@@ -31,14 +51,20 @@ function playRound(playerSelection, computerSelection) {
   //   function to call if player selects rock
   function playerSelectedRock() {
     if (computerSelection == "Paper") {
+      animatePaper();
+      animateResult();
       computerScore += 1;
       computerScoreCounter.textContent = computerScore;
       result.textContent = "You Lost! Paper beats Rock!";
     } else if (computerSelection == "Scissors") {
+      animateScissors();
+      animateResult();
       playerScore += 1;
       playerScoreCounter.textContent = playerScore;
       result.textContent = "You win! Rock beats Scissors!";
     } else {
+      animateRock();
+      animateResult();
       result.textContent = "It's a tie!";
     }
   }
@@ -46,14 +72,20 @@ function playRound(playerSelection, computerSelection) {
   //   function to call if player selects paper
   function playerSelectedPaper() {
     if (computerSelection == "Scissors") {
+      animateScissors();
+      animateResult();
       computerScore += 1;
       computerScoreCounter.textContent = computerScore;
       result.textContent = "You Lost! Scissors beats Paper!";
     } else if (computerSelection == "Rock") {
+      animateRock();
+      animateResult();
       playerScore += 1;
       playerScoreCounter.textContent = playerScore;
       result.textContent = "You win! Paper beats Rock!";
     } else {
+      animatePaper();
+      animateResult();
       result.textContent = "It's a tie!";
     }
   }
@@ -61,14 +93,20 @@ function playRound(playerSelection, computerSelection) {
   //   function to call if player selects scissors
   function playerSelectedScissors() {
     if (computerSelection == "Rock") {
+      animateRock();
+      animateResult();
       computerScore += 1;
       computerScoreCounter.textContent = computerScore;
       result.textContent = "You Lost! Rock beats Scissors!";
     } else if (computerSelection == "Paper") {
+      animatePaper();
+      animateResult();
       playerScore += 1;
       playerScoreCounter.textContent = playerScore;
       result.textContent = "You win! Scissors beats Paper";
     } else {
+      animateScissors();
+      animateResult();
       result.textContent = "It's a tie!";
     }
   }
@@ -114,17 +152,17 @@ function game() {
 
 function playRock() {
   const computerSelection = getComputerChoice();
-  console.log(playRound("Rock", computerSelection));
+  playRound("Rock", computerSelection);
 }
 
 function playPaper() {
   const computerSelection = getComputerChoice();
-  console.log(playRound("Paper", computerSelection));
+  playRound("Paper", computerSelection);
 }
 
 function playScissors() {
   const computerSelection = getComputerChoice();
-  console.log(playRound("Scissors", computerSelection));
+  playRound("Scissors", computerSelection);
 }
 
 function reloadPage() {
@@ -135,3 +173,17 @@ rock.addEventListener("click", playRock);
 paper.addEventListener("click", playPaper);
 scissors.addEventListener("click", playScissors);
 resetButton.addEventListener("click", reloadPage);
+
+computerRock.addEventListener("animationend", () => {
+  computerRock.classList.remove("zoomAnimate");
+});
+computerPaper.addEventListener("animationend", () => {
+  computerPaper.classList.remove("zoomAnimate");
+});
+computerScissors.addEventListener("animationend", () => {
+  computerScissors.classList.remove("zoomAnimate");
+});
+
+result.addEventListener("animationend", () => {
+  result.classList.remove("zoomAnimateResult");
+});
