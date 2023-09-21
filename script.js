@@ -20,6 +20,7 @@ computerScissors = document.querySelector("#computerScissors");
 computerSelections = document.querySelectorAll(".selection.computer");
 modalMessage = document.querySelector(".modalMessage");
 var modal = document.getElementById("myModal");
+document.querySelector(".currentYear").textContent = new Date().getFullYear();
 
 // Function for getting a computer choice for either rock paper scissors
 function getComputerChoice() {
